@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-gateway" />
+        <module name="microservice-transferencia" />
+        <module name="microservice-saldo" />
+        <module name="microservice-deposito" />
+        <module name="microservice-movimiento" />
+        <module name="microservice-retiro" />
+        <module name="microservice-eureka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-config" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-config" options="-parameters" />
+      <module name="microservice-deposito" options="-parameters" />
+      <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-movimiento" options="-parameters" />
+      <module name="microservice-retiro" options="-parameters" />
+      <module name="microservice-saldo" options="-parameters" />
+      <module name="microservice-transferencia" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,43 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:8080"  # Solo permite CORS desde el puerto 8080
+            allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+            allowed-headers: "*"
+            allow-credentials: true
+      routes:
+        - id: movimiento
+          uri: http://localhost:8091
+          predicates:
+            - Path=/api/movimientos/movimientos/**
+        - id: saldo
+          uri: http://localhost:8092
+          predicates:
+            - Path=/saldo/**
+        - id: retiro
+          uri: http://localhost:9090
+          predicates:
+            - Path=/api/transfer/withdraw/**
+        - id: deposito
+          uri: http://localhost:8093
+          predicates:
+            - Path=/api/transfer/deposito/**
+        - id: transferencia
+          uri: http://localhost:8094
+          predicates:
+            - Path=/api/transferencias/transferencia/**
+
+  config:
+    import: optional:configserver:http://localhost:8888
